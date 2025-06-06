@@ -80,3 +80,43 @@
             <a href="#kontakt" class="btn btn-primary btn-large">Kontaktirajte nas</a>
         </div>
     </section>
+    <section id="kontakt" class="section">
+        <div class="container">
+            <h2>Kontaktirajte nas</h2>
+            <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+            <script>
+            (function() {
+                emailjs.init("xKpmTWYDPeBlIZr5H");
+            })();
+            </script>
+
+            <form id="contact-form">
+            <input type="text" name="user_name" placeholder="Your Name" required>
+            <input type="email" name="user_email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <div style="align-content: center; margin: auto;"><button type="submit" style = "background-color:  #006f94; width:10vh; color:white; border-color: #006f94; border-radius:10px; height:3vh;">Send</button></div>
+            </form>
+
+            <script>
+            document.getElementById("contact-form").addEventListener("submit", function(e) {
+                e.preventDefault();
+
+                emailjs.sendForm("service_c8kvvup", "template_5g7p0lr", this)
+                .then(function() {
+                    alert("Confirmation email sent to user!");
+                }, function(error) {
+                    alert("Failed to send: " + JSON.stringify(error));
+                });
+            });
+            </script>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Synergy Hub. Sva prava pridržana.</p>
+        </div>
+    </footer>
+</body>
+</html>
